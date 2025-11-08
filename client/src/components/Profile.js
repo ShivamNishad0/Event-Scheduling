@@ -37,7 +37,7 @@ const Profile = () => {
 
   if (loading) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f9fafb' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black', color: 'white' }}>
         <p>Loading...</p>
       </div>
     );
@@ -45,7 +45,7 @@ const Profile = () => {
 
   if (error) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f9fafb' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black' }}>
         <p style={{ color: '#dc2626' }}>{error}</p>
       </div>
     );
@@ -56,26 +56,23 @@ const Profile = () => {
   const containerStyle = {
     minHeight: '100vh',
     padding: '2rem',
-    backgroundColor: '#f9fafb',
+    backgroundColor: 'black',
+    color: 'white',
   };
-  
-  // New style for the grid container
+
   const eventsGridStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', // Allows 3 columns typically, and wraps on smaller screens
-    gap: '1.5rem', // Space between cards
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '1.5rem',
     marginTop: '1rem',
   };
 
   const eventCardStyle = {
-    // Removed gridTemplateColumns from here as it's now handled by the parent grid
     minHeight: '10vh',
-    backgroundColor: 'white',
-    border: '1px solid #d1d5db',
+    backgroundColor: '#1f2937', // dark gray card
     borderRadius: '0.5rem',
     padding: '1.5rem',
-    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-    // Added display: 'flex' and flexDirection: 'column' to manage content layout within the card
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)',
     display: 'flex',
     flexDirection: 'column',
   };
@@ -83,13 +80,13 @@ const Profile = () => {
   const eventTitleStyle = {
     fontSize: '1.25rem',
     fontWeight: 'bold',
-    color: '#111827',
+    color: 'white',
     marginBottom: '0.5rem',
   };
 
   const eventDetailStyle = {
     fontSize: '0.875rem',
-    color: '#6b7280',
+    color: '#d1d5db',
     marginBottom: '0.25rem',
   };
 
@@ -99,39 +96,33 @@ const Profile = () => {
 
   const attendeeItemStyle = {
     fontSize: '0.875rem',
-    color: '#374151',
+    color: '#f3f4f6',
     marginBottom: '0.25rem',
   };
 
   return (
     <div style={containerStyle}>
-      <h1 style={{ textAlign: 'left', fontSize: '2.5rem', fontWeight: 'bold', color: '#111827', marginBottom: '1rem' , marginTop: '-1rem'}}>
+      <h1 style={{ textAlign: 'left', fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem', marginTop: '-1rem' }}>
         Welcome {user.name},
       </h1>
       <div>
-        <h2 style={{ textAlign: 'left', fontSize: '1.5rem', fontWeight: '600', color: '#111827', marginBottom: '0.5rem' }}>
+        <h2 style={{ textAlign: 'left', fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>
           Your Profile
         </h2>
-        <p style={{ fontSize: '1rem', color: '#6b7280', marginBottom: '1rem', textAlign: 'left' }}>
-          Name: {user.name}
-        </p>
-        <p  style={{ fontSize: '1rem', color: '#6b7280', marginBottom: '1rem', textAlign: 'left' }}>
-          Email: {user.email}
-        </p>
+        <p style={{ fontSize: '1rem', marginBottom: '1rem', textAlign: 'left' }}>Name: {user.name}</p>
+        <p style={{ fontSize: '1rem', marginBottom: '1rem', textAlign: 'left' }}>Email: {user.email}</p>
       </div>
       <div style={{ marginTop: '2rem', marginBottom: '1rem' }}>
-        <h2 style={{ textAlign: 'left', fontSize: '1.5rem', fontWeight: '600', color: '#111827', marginBottom: '0.5rem' }}>
+        <h2 style={{ textAlign: 'left', fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.5rem' }}>
           Your Created Events
-        </h2> 
-        
-        <p style={{ fontSize: '1rem', color: '#6b7280' }}>
+        </h2>
+        <p style={{ fontSize: '1rem' }}>
           Here are the events you have created. You can view attendee details for each event below.
         </p>
       </div>
       {events.length === 0 ? (
-        <p style={{ textAlign: 'center', color: '#6b7280' }}>You haven't created any events yet.</p>
+        <p style={{ textAlign: 'center', color: '#d1d5db' }}>You haven't created any events yet.</p>
       ) : (
-        // Apply the grid style to the container wrapping the event cards
         <div style={eventsGridStyle}>
           {events.map((event) => (
             <div key={event.id} style={eventCardStyle}>
@@ -143,10 +134,10 @@ const Profile = () => {
               <p style={eventDetailStyle}>Attendees: {event.attendee_count}</p>
               {event.attendees && event.attendees.length > 0 && (
                 <div style={attendeeListStyle}>
-                  <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#111827', marginBottom: '0.5rem' }}>Attendee Details:</h3>
+                  <h3 style={{ fontSize: '1rem', fontWeight: '600', color: 'white', marginBottom: '0.5rem' }}>Attendee Details:</h3>
                   {event.attendees.map((attendee) => (
                     <div key={attendee.id} style={attendeeItemStyle}>
-                      **{attendee.name}** - {attendee.email}
+                      {attendee.name} - {attendee.email}
                     </div>
                   ))}
                 </div>
