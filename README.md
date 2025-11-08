@@ -26,7 +26,7 @@ A full-stack event scheduling application built with PERN stack (PostgreSQL, Exp
 - PostgreSQL
 - npm or yarn
 
-### Backend Setup
+### Server Setup
 
 1. Navigate to the server directory:
    ```bash
@@ -56,7 +56,7 @@ A full-stack event scheduling application built with PERN stack (PostgreSQL, Exp
    npm run dev
    ```
 
-### Frontend Setup
+### Client Setup
 
 1. Navigate to the client directory:
    ```bash
