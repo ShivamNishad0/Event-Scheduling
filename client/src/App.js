@@ -10,6 +10,9 @@ import Navbar from './components/Navbar';
 import ContactUs from './components/ContactUs';
 import AboutUs from './components/AboutUs';
 import Profile from './components/Profile';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 import './App.css';
 
 function App() {
