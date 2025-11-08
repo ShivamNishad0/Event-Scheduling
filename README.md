@@ -43,7 +43,13 @@ A full-stack event scheduling application built with PERN stack (PostgreSQL, Exp
    - Run the SQL script in `database.sql` to create tables
 
 4. Configure environment variables:
-   - Copy `.env` file and update with your database credentials and JWT secret
+   - Create a `.env` file in the server directory with the following variables:
+     ```
+     PORT=5001
+     DATABASE_URL=postgresql://username:password@localhost:5432/event_scheduling
+     JWT_SECRET=your_jwt_secret_key_here
+     ```
+   - Replace `username`, `password`, and `your_jwt_secret_key_here` with your actual PostgreSQL credentials and a secure JWT secret
 
 5. Start the server:
    ```bash
@@ -62,7 +68,14 @@ A full-stack event scheduling application built with PERN stack (PostgreSQL, Exp
    npm install
    ```
 
-3. Start the development server:
+3. Configure environment variables:
+   - Create a `.env` file in the client directory with the following variable:
+     ```
+     REACT_APP_API_URL=http://localhost:5001
+     ```
+   - This sets the API base URL for the React app to communicate with the backend server
+
+4. Start the development server:
    ```bash
    npm start
    ```
