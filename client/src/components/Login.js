@@ -31,19 +31,20 @@ const Login = () => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f9fafb'
+    backgroundColor: '#000000ff',
+    marginTop: '-40px'
   };
   const divtwoStyle = { 
     maxWidth: '28rem', 
     width: '100%', 
-    padding: '2rem' 
+    padding: '2rem',
   };
   const h1Style = {
     marginTop: '1.5rem', 
     textAlign: 'center', 
     fontSize: '1.875rem', 
     fontWeight: '800', 
-    color: '#111827' 
+    color: 'white'
   };
   const submiBtnStyle = {
     width: '100%',
