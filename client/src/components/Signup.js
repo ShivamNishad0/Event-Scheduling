@@ -27,6 +27,19 @@ const Signup = () => {
     }
   };
 
+  const submiBtnStyle = {
+    width: '100%',
+    padding: '0.5rem 1rem',
+    backgroundColor: '#000000ff',
+    color: 'white',
+    borderRadius: '0.375rem',
+    fontSize: '0.875rem',
+    fontWeight: '500',
+    cursor: 'pointer',
+    border: '1.5px solid yellow',
+    boxShadow: '2px 2px 10px yellow', 
+    };
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f9fafb' }}>
       <div style={{ maxWidth: '28rem', width: '100%', padding: '2rem' }}>
@@ -103,17 +116,7 @@ const Signup = () => {
           <div style={{ marginBottom: '1rem' }}>
             <button
               type="submit"
-              style={{
-                width: '100%',
-                padding: '0.5rem 1rem',
-                backgroundColor: '#4f46e5',
-                color: 'white',
-                border: 'none',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                cursor: 'pointer'
-              }}
+              style={submiBtnStyle}
             >
               Sign up
             </button>

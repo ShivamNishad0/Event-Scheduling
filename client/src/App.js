@@ -7,6 +7,7 @@ import EventDetails from './components/EventDetails';
 import CreateEvent from './components/CreateEvent';
 import EditEvent from './components/EditEvent';
 import Navbar from './components/Navbar';
+import Profile from './components/Profile';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/create-event" element={<CreateEvent />} />
           <Route path="/edit-event/:id" element={<EditEvent />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>

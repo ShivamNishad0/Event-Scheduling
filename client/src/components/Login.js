@@ -26,15 +26,47 @@ const Login = () => {
     }
   };
 
+  const divStyle = {
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#f9fafb'
+  };
+  const divtwoStyle = { 
+    maxWidth: '28rem', 
+    width: '100%', 
+    padding: '2rem' 
+  };
+  const h1Style = {
+    marginTop: '1.5rem', 
+    textAlign: 'center', 
+    fontSize: '1.875rem', 
+    fontWeight: '800', 
+    color: '#111827' 
+  };
+  const submiBtnStyle = {
+    width: '100%',
+    padding: '0.5rem 1rem',
+    backgroundColor: '#000000ff',
+    color: 'white',
+    borderRadius: '0.375rem',
+    fontSize: '0.875rem',
+    fontWeight: '500',
+    cursor: 'pointer',
+    border: '1.5px solid yellow',
+    boxShadow: '2px 2px 10px yellow', 
+    };
+
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f9fafb' }}>
-      <div style={{ maxWidth: '28rem', width: '100%', padding: '2rem' }}>
+    <div style={divStyle}>
+      <div style={divtwoStyle}>
         <div>
-          <h2 style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '1.875rem', fontWeight: '800', color: '#111827' }}>
+          <h2 style={h1Style}>
             Sign in to your account
           </h2>
         </div>
-        <form style={{ marginTop: '2rem' }} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           {error && <p style={{ color: '#dc2626', textAlign: 'center', marginBottom: '1rem' }}>{error}</p>}
           <div style={{ marginBottom: '1rem' }}>
             <input
@@ -81,17 +113,7 @@ const Login = () => {
           <div style={{ marginBottom: '1rem' }}>
             <button
               type="submit"
-              style={{
-                width: '100%',
-                padding: '0.5rem 1rem',
-                backgroundColor: '#4f46e5',
-                color: 'white',
-                border: 'none',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                cursor: 'pointer'
-              }}
+              style={submiBtnStyle}
             >
               Sign in
             </button>
