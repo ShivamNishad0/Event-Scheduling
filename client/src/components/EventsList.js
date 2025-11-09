@@ -115,7 +115,7 @@ const EventsList = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                height: '85%', // ensures equal height cards
+                height: '85%',
               }}
             >
               <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>{event.title}</h2>

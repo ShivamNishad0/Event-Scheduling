@@ -83,10 +83,26 @@ const EventDetails = () => {
   const isCreator = user.id === event.created_by;
   const isAttendee = event.attendees.some(attendee => attendee.id === user.id);
 
+  const editbtnStyle = {
+    display: 'inline-block',
+    textDecoration: 'none',
+    padding: '0.5rem 1rem',
+    backgroundColor: '#000000ff',
+    color: 'white',
+    borderRadius: '0.375rem',
+    fontSize: '0.875rem',
+    fontWeight: '500',
+    cursor: 'pointer',
+    border: '1.5px solid yellow',
+    boxShadow: '2px 2px 10px yellow',
+    marginRight: '0.75rem', 
+  };
+
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', marginTop: '2rem', padding: '0 1rem' }}>
+    <div style={{ minHeight: '100vh', backgroundColor: 'black', padding: '2rem' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', marginTop: '2rem', padding: '0 1rem', backgroundColor: 'black', color: 'white'}}>
       <div style={{ maxWidth: '42rem', margin: '0 auto', backgroundColor: 'white', borderRadius: '0.5rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', padding: '1.5rem' }}>
-        <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '1rem' }}>{event.title}</h1>
+        <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '1rem', color: 'black'}}>{event.title}</h1>
         <p style={{ color: '#4b5563', marginBottom: '1rem' }}>{event.description}</p>
         <p style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem' }}>
           Date: {new Date(event.date).toLocaleDateString()} at {event.time}
@@ -98,7 +114,7 @@ const EventDetails = () => {
           <div style={{ marginBottom: '1rem' }}>
             <Link
               to={`/edit-event/${event.id}`}
-              style={{ backgroundColor: '#3b82f6', color: 'white', padding: '0.5rem 1rem', borderRadius: '0.25rem', marginRight: '0.5rem', textDecoration: 'none', display: 'inline-block' }}
+              style={editbtnStyle}
             >
               Edit Event
             </Link>
@@ -116,15 +132,12 @@ const EventDetails = () => {
             {isAttendee ? (
               <button
                 onClick={handleLeaveEvent}
-                style={{ backgroundColor: '#ef4444', color: 'white', padding: '0.5rem 1rem', borderRadius: '0.25rem', border: 'none', cursor: 'pointer' }}
+                style={{ backgroundColor: '#f15400ff', color: 'white', padding: '0.5rem 1rem', borderRadius: '0.25rem', border: 'none', cursor: 'pointer' }}
               >
                 Leave Event
               </button>
             ) : (
-              <button
-                onClick={handleJoinEvent}
-                style={{ backgroundColor: '#10b981', color: 'white', padding: '0.5rem 1rem', borderRadius: '0.25rem', border: 'none', cursor: 'pointer' }}
-              >
+              <button onClick={handleJoinEvent} style={editbtnStyle}>
                 Join Event
               </button>
             )}
@@ -140,6 +153,7 @@ const EventDetails = () => {
           ))}
         </ul>
       </div>
+    </div>
     </div>
   );
 };

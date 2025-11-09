@@ -70,14 +70,28 @@ const EditEvent = () => {
   if (loading) return <div style={{ textAlign: 'center', marginTop: '2rem' }}>Loading...</div>;
   if (error) return <div style={{ textAlign: 'center', marginTop: '2rem', color: '#dc2626' }}>{error}</div>;
 
+  const submitbtnStyle = {
+    width: '35%',
+    padding: '0.5rem 1rem',
+    backgroundColor: '#000000ff',
+    color: 'white',
+    borderRadius: '0.375rem',
+    fontSize: '0.875rem',
+    fontWeight: '500',
+    cursor: 'pointer',
+    border: '1.5px solid yellow',
+    boxShadow: '2px 2px 10px yellow', 
+    };
+
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', marginTop: '2rem', padding: '0 1rem' }}>
-      <div style={{ maxWidth: '28rem', margin: '0 auto', backgroundColor: 'white', borderRadius: '0.5rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', padding: '1.5rem' }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem' }}>Edit Event</h1>
+    <div style={{ minHeight: '100vh', backgroundColor: 'black', padding: '2rem' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', marginTop: '2rem', padding: '0 1rem',  }}>
+      <div style={{ maxWidth: '28rem', margin: '0 auto', marginTop: '-10px', backgroundColor: 'white', borderRadius: '0.5rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', padding: '1.5rem', background: 'black', color: 'white'}}>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: 'white'}}>Edit Event</h1>
         <form onSubmit={handleSubmit}>
           {error && <p style={{ color: '#dc2626', marginBottom: '1rem' }}>{error}</p>}
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', color: '#374151', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="title">
+            <label style={{ display: 'flex', color: 'black', gap: '0.5rem', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="title">
               Title
             </label>
             <input
@@ -98,7 +112,7 @@ const EditEvent = () => {
             />
           </div>
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', color: '#374151', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="description">
+            <label style={{ display: 'flex', color: 'black', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="description">
               Description
             </label>
             <textarea
@@ -119,7 +133,7 @@ const EditEvent = () => {
             />
           </div>
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', color: '#374151', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="date">
+            <label style={{ display: 'flex', color: 'black', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="date">
               Date
             </label>
             <input
@@ -140,7 +154,7 @@ const EditEvent = () => {
             />
           </div>
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', color: '#374151', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="time">
+            <label style={{ display: 'flex', color: 'black', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="time">
               Time
             </label>
             <input
@@ -161,7 +175,7 @@ const EditEvent = () => {
             />
           </div>
           <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', color: '#374151', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="location">
+            <label style={{ display: 'flex', color: 'black', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }} htmlFor="location">
               Location
             </label>
             <input
@@ -183,15 +197,7 @@ const EditEvent = () => {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <button
               type="submit"
-              style={{
-                backgroundColor: '#3b82f6',
-                color: 'white',
-                fontWeight: 'bold',
-                padding: '0.5rem 1rem',
-                borderRadius: '0.25rem',
-                border: 'none',
-                cursor: 'pointer'
-              }}
+              style={submitbtnStyle}
             >
               Update Event
             </button>
@@ -199,7 +205,7 @@ const EditEvent = () => {
               type="button"
               onClick={() => navigate(`/events/${id}`)}
               style={{
-                backgroundColor: '#6b7280',
+                backgroundColor: '#f15400ff',
                 color: 'white',
                 fontWeight: 'bold',
                 padding: '0.5rem 1rem',
@@ -213,6 +219,7 @@ const EditEvent = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

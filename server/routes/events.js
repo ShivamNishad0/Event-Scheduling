@@ -226,4 +226,20 @@ router.post('/:id/leave', auth, async (req, res) => {
   }
 });
 
+// Get attendees for an event
+router.get('/:id/attendees',async(req, res) => {
+  try {
+    const attendees = await pool.query(`
+      SELECT u.id, u.name, u.email
+      FROM event_attendees ea
+      JOIN users u ON ea.user_id = u.id
+      WHERE ea.event_id = $1
+    `, [req.params.id]);
+    res.json(attendees.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+})
+
 module.exports = router;
