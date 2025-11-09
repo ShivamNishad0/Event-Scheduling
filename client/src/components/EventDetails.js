@@ -97,12 +97,23 @@ const EventDetails = () => {
     boxShadow: '2px 2px 10px yellow',
     marginRight: '0.75rem', 
   };
+  const style={
+                backgroundColor: '#1f2937',
+                color: 'white',
+                borderRadius: '0.5rem',
+                boxShadow: '0 4px 6px -1px rgba(255, 255, 255, 0.1)',
+                padding: '1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                height: '85%',
+              }
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'black', padding: '2rem' }}>
     <div style={{ maxWidth: '1200px', margin: '0 auto', marginTop: '2rem', padding: '0 1rem', backgroundColor: 'black', color: 'white'}}>
-      <div style={{ maxWidth: '42rem', margin: '0 auto', backgroundColor: 'white', borderRadius: '0.5rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', padding: '1.5rem' }}>
-        <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '1rem', color: 'black'}}>{event.title}</h1>
+      <div style={style}>
+        <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '1rem', color: 'white'}}>{event.title}</h1>
         <p style={{ color: '#4b5563', marginBottom: '1rem' }}>{event.description}</p>
         <p style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem' }}>
           Date: {new Date(event.date).toLocaleDateString()} at {event.time}
@@ -144,8 +155,8 @@ const EventDetails = () => {
           </div>
         )}
 
-        <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>Attendees ({event.attendees.length})</h2>
-        <ul style={{ listStyleType: 'disc', listStylePosition: 'inside' }}>
+        <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem', textAlign: 'left' }}>Total Attendees: {event.attendees.length}</h2>
+        <ul style={{ listStyleType: 'disc', listStylePosition: 'inside', textAlign: 'left', marginLeft: '2rem'}}>
           {event.attendees.map((attendee) => (
             <li key={attendee.id} style={{ color: '#374151' }}>
               {attendee.name} ({attendee.email})

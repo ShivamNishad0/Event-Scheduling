@@ -62,7 +62,8 @@ const Profile = () => {
       });
       setSelectedEvent({
         id: eventId,
-        attendees: response.data,
+        title: response.data.title,
+        attendees: response.data.attendees,
       });
     } catch (error) {
       console.error('Error fetching attendees:', error);
@@ -78,13 +79,14 @@ const Profile = () => {
       alert('No attendees to export.');
       return;
     }
-    const csvHeader = "Name,Email\n";
-    const csvRows = selectedEvent.attendees.map(attendee => `"${attendee.name}","${attendee.email}"`).join("\n");
+    const csvHeader = "S.No.,Name,Email\n";
+    const csvRows = selectedEvent.attendees.map((attendee, index) => `"${index + 1}","${attendee.name}","${attendee.email}"`).join("\n");
     const csvContent = "data:text/csv;charset=utf-8," + csvHeader + csvRows;
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "attendees.csv");
+    const sanitizedTitle = selectedEvent.title.replace(/[^a-zA-Z0-9]/g, '_');
+    link.setAttribute("download", `Attendees of ${sanitizedTitle}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -107,7 +109,7 @@ const Profile = () => {
 
   const eventCardStyle = {
     minHeight: '10vh',
-    backgroundColor: '#1f2937', // dark gray card
+    backgroundColor: '#1f2937',
     borderRadius: '0.5rem',
     padding: '1.5rem',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)',
@@ -166,12 +168,14 @@ const Profile = () => {
   const exportBtnStyle = {
     padding: '0.5rem 1rem',
     backgroundColor: 'black',
-    border: '1.5px solid green',
+    border: '1.5px solid yellow',
     color: 'white',
     cursor: 'pointer',
     borderRadius: '0.375rem',
     marginTop: '1rem',
-    boxShadow: '2px 2px 10px green',
+    boxShadow: '2px 2px 10px yellow',
+    marginLeft: '350px',
+    textAlign: 'right',
   };
 
   return (
@@ -221,7 +225,8 @@ const Profile = () => {
       {selectedEvent && (
         <div style={popupOverlayStyle} onClick={handleClosePopup}>
           <div style={popupStyle} onClick={(e) => e.stopPropagation()}>
-            <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Attendee List</h2>
+            <button style={{ backgroundColor: 'transparent', marginLeft: '480px', marginTop: '-30px' }} onClick={handleClosePopup}>X</button>
+            <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', marginTop: '-1rem'}}>Attendee List for {selectedEvent.title}</h2>
             {selectedEvent.attendees.length === 0 ? (
               <p>No attendees yet.</p>
             ) : (
@@ -265,7 +270,6 @@ const Profile = () => {
 
             )}
             <button style={exportBtnStyle} onClick={handleExport}>Export Details</button>
-            <button style={{ backgroundColor: 'black', marginLeft: '1rem', border: 'yellow', boxShadow: '2px 2px 10px yellow' }} onClick={handleClosePopup}>Close</button>
           </div>
         </div>
       )}
