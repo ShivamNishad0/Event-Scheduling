@@ -25,6 +25,7 @@ app.use(express.json());
 // Database connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
 });
 
 // Test database connection
