@@ -85,7 +85,8 @@ const EditEvent = () => {
     };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'black', padding: '2rem' }}>
+    <div style={{ background: 'black', minHeight: '100vh', paddingBottom: '2rem', marginTop: '-5px' }}>
+    <div style={{ minHeight: '70vh', backgroundColor: 'black', padding: '2rem' }}>
     <div style={{ maxWidth: '1200px', margin: '0 auto', marginTop: '2rem', padding: '0 1rem',  }}>
       <div style={{ maxWidth: '28rem', margin: '0 auto', marginTop: '-10px', backgroundColor: 'white', borderRadius: '0.5rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', padding: '1.5rem', background: 'black', color: 'white'}}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: 'white'}}>Edit Event</h1>
@@ -220,6 +221,7 @@ const EditEvent = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
     <Footer />
     </div>

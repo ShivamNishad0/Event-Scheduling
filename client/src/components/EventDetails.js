@@ -108,9 +108,12 @@ const EventDetails = () => {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 height: '85%',
+                marginTop: '1rem',
+                marginBottom: '1rem',
               }
 
   return (
+    <div style={{ background: 'black', minHeight: '120vh', paddingBottom: '2rem', marginTop: '-35px' }}>
     <div style={{ minHeight: '100vh', backgroundColor: 'black', padding: '2rem' }}>
     <div style={{ maxWidth: '1200px', margin: '0 auto', marginTop: '2rem', padding: '0 1rem', backgroundColor: 'black', color: 'white'}}>
       <div style={style}>
@@ -165,6 +168,7 @@ const EventDetails = () => {
           ))}
         </ul>
       </div>
+    </div>
     </div>
     <Footer />
     </div>

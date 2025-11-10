@@ -50,6 +50,7 @@ const CreateEvent = () => {
     };
 
   return (
+    <div style={{ background: 'black', minHeight: '120vh', paddingBottom: '2rem', marginTop: '-35px' }}>
     <div style={{ minHeight: '100vh', backgroundColor: 'black', padding: '2rem' }}>
       <div
         style={{
@@ -151,6 +152,7 @@ const CreateEvent = () => {
             </button>
           </div>
         </form>
+      </div>
       </div>
       <Footer />
     </div>

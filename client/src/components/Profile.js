@@ -184,6 +184,7 @@ const Profile = () => {
   };
 
   return (
+    <div style={{ background: 'black', minHeight: '120vh', paddingBottom: '2rem', marginTop: '-35px' }}>
     <div style={containerStyle}>
       <h1 style={{ textAlign: 'left', fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem', marginTop: '-1rem' }}>
         Welcome {user.name},
@@ -278,6 +279,7 @@ const Profile = () => {
           </div>
         </div>
       )}
+      </div>
       <Footer />
     </div>
   );
