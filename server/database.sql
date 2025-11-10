@@ -1,8 +1,11 @@
 -- Create database
 CREATE DATABASE event_scheduling;
 
+-- Use render database
+\c event_scheduling_msnh; 
+
 -- Use the database
-\c event_scheduling;
+-- \c event_scheduling;
 
 -- Create users table
 CREATE TABLE users (

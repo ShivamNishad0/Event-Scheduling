@@ -221,7 +221,7 @@ const Profile = () => {
               <p style={eventDetailStyle}><b>Time:</b> {event.time}</p>
               <p style={eventDetailStyle}><b>Location:</b> {event.location}</p>
               <p style={eventDetailStyle}><b>Attendees:</b> {event.attendee_count}</p>
-              <button style={seeattendeebtnStyle} onClick={() => handleSeeAttendees(event.id)}>See Attendee</button>
+              <button style={seeattendeebtnStyle} onClick={(e) => {e.stopPropagation(); handleSeeAttendees(event.id)}}>See Attendee</button>
             </div>
           ))}
         </div>
