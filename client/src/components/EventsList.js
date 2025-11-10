@@ -147,7 +147,7 @@ const EventsList = () => {
                   </button>
                   <button
                     onClick={() => handleLeaveEvent(event.id)}
-                    style={{ backgroundColor: '#f15400ff', color: 'white', padding: '0.25rem 0.75rem', borderRadius: '0.25rem', border: 'none', cursor: 'pointer' }}
+                    style={{ backgroundColor: '#ff5900ff', color: 'white', padding: '0.25rem 0.75rem', border: '1.5px solid #ff5900ff', borderRadius: '0.25rem', cursor: 'pointer', boxShadow: '2px 2px 10px #ff4d00ff'}}
                   >
                     Leave
                   </button>

@@ -143,7 +143,7 @@ const EventDetails = () => {
             {isAttendee ? (
               <button
                 onClick={handleLeaveEvent}
-                style={{ backgroundColor: '#f15400ff', color: 'white', padding: '0.5rem 1rem', borderRadius: '0.25rem', border: 'none', cursor: 'pointer' }}
+                style={{ backgroundColor: '#f15400ff', color: 'white', padding: '0.5rem 1rem', borderRadius: '0.25rem', border: 'none', cursor: 'pointer', boxShadow: '2px 2px 10px #ff4d00ff' }}
               >
                 Leave Event
               </button>

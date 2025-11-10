@@ -92,6 +92,10 @@ const Profile = () => {
     document.body.removeChild(link);
   }
 
+  const handleOpen = (id) => {
+    navigate(`/events/${id}`);
+  };
+  
   const containerStyle = {
     minHeight: '100vh',
     padding: '2rem',
@@ -203,7 +207,7 @@ const Profile = () => {
       ) : (
         <div style={eventsGridStyle}>
           {events.map((event) => (
-            <div key={event.id} style={eventCardStyle}>
+            <div key={event.id} style={eventCardStyle} onClick={() => handleOpen(event.id)}>
               <h2 style={eventTitleStyle}>{event.title}</h2>
               <p style={{ color: '#4b5563', marginBottom: '0.5rem' }}>
                 {event.description.length > 70 
@@ -278,5 +282,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-
