@@ -8,6 +8,7 @@ import pic1 from '../assets/images/pic1.jpg';
 import pic2 from '../assets/images/pic2.jpg';
 import pic3 from '../assets/images/pic3.jpg';
 import pic4 from '../assets/images/pic4.jpg';
+import Footer from './Footer';
 
 const EventsList = () => {
   const [events, setEvents] = useState([]);
@@ -157,6 +158,7 @@ const EventsList = () => {
           ))}
         </div>
       </div>
+      <Footer style={{ marginTop: '2rem' }} />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Footer from './Footer';
 
 const EditEvent = () => {
   const [formData, setFormData] = useState({
@@ -220,6 +221,7 @@ const EditEvent = () => {
         </form>
       </div>
     </div>
+    <Footer />
     </div>
   );
 };

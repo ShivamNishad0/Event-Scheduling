@@ -7,6 +7,7 @@ import EventDetails from './components/EventDetails';
 import CreateEvent from './components/CreateEvent';
 import EditEvent from './components/EditEvent';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
 import AboutUs from './components/AboutUs';
 import Profile from './components/Profile';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/create-event" element={<CreateEvent />} />
           <Route path="/edit-event/:id" element={<EditEvent />} />
+          <Route path="/footer" element={<Footer />} />
           <Route path="/Contact Us" element={<ContactUs />} />
           <Route path="/About Us" element={<AboutUs />} />
           <Route path="/profile" element={<Profile />} />

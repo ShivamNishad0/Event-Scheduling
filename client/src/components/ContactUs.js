@@ -1,91 +1,76 @@
 import React from 'react';
+import Footer from './Footer';
 
 const ContactUs = () => {
 
-    const submitBtnStyle = {
-    width: '35%',
-    padding: '0.5rem 1rem',
-    backgroundColor: '#000000ff',
+  const labelStyle = { 
+    color: 'black', 
+    marginBottom: '0.5rem', 
+    textAlign: 'left' ,
+    minWidth: '100px,',
+    fontWeight: 'bold'
+  }
+
+  const inputStyle = {
+    flex:1,
+    width: '100%',
+    padding: '0.5rem 0.75rem',
+    marginRight: '1rem',
+    border: '1px solid #d1d5db',
+    borderRadius: '0.375rem',
+    fontSize: '0.875rem',
+    color: '#111827',
+    backgroundColor: '#fff',
+    boxSizing: 'border-box'
+  };
+
+  const submitBtnStyle = {
+    padding: '0.5rem 1.5rem',
+    backgroundColor: '#000',
     color: 'white',
     borderRadius: '0.375rem',
     fontSize: '0.875rem',
     fontWeight: '500',
     cursor: 'pointer',
     border: '1.5px solid yellow',
-    boxShadow: '2px 2px 10px yellow', 
-    marginLeft: '65%',
-    };
+    boxShadow: '2px 2px 10px yellow',
+    alignSelf: 'flex-end',
+    marginTop: '1rem'
+  };
+
 
   return (
-    <div style={{ backgroundColor: 'black', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
-      <div style={{ 
-        maxWidth: '600px', 
-        width: '100%', 
-        padding: '2rem', 
-        marginTop: '-50px',
-        backgroundColor: '#000000ff', 
-        color: 'white',            
-        borderRadius: '8px', 
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.5)' 
-      }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Contact Us</h2>
-        <form>
-            <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <label htmlFor="name" style={{ color: 'black', minWidth: '80px', textAlign: 'left'}}>Name:</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        style={{
-                            flex: 1,
-                            padding: '0.5rem 0.75rem',
-                            border: '1px solid #d1d5db',
-                            borderRadius: '0.375rem',
-                            fontSize: '0.875rem',
-                            color: '#111827',
-                            boxSizing: 'border-box'
-                            }} 
-                    />
-            </div>
-            <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <label htmlFor="email" style={{ display: 'block', minWidth: '80px', color: 'black',textAlign: 'left'}}>Email:</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        style={{
-                            width: '100%',
-                            padding: '0.5rem 0.75rem',
-                            border: '1px solid #d1d5db',
-                            borderRadius: '0.375rem',
-                            fontSize: '0.875rem',
-                            color: '#111827',
-                            boxSizing: 'border-box'
-                        }} 
-                    />
-            </div>
-          <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem'  }}>
-            <label htmlFor="message" style={{ display: 'block', minWidth: '80px', color: 'black', textAlign: 'left'}}>Message:</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              rows="5" 
-              style={{
-                width: '100%',
-                padding: '0.5rem 0.75rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem',
-                color: '#111827',
-                boxSizing: 'border-box'
-              }}
-            ></textarea>
+    <div style={{ backgroundColor: 'black', minHeight: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+        <form style={{ width: '100%', maxWidth: '500px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          
+          <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', color: 'black'}}>Contact Us</h2>
+          
+          {/* Name Field */}
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', gap: '1rem' }}>
+            <label htmlFor="name" style={labelStyle}>Name:</label>
+            <input type="text" id="name" name="name" style={inputStyle} />
           </div>
-          <button type="submit" style={submitBtnStyle}>
-            Send Message
-          </button>
+
+          {/* Email Field */}
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', gap: '1rem' }}>
+            <label htmlFor="email" style={labelStyle}>Email:</label>
+            <input type="email" id="email" name="email" style={inputStyle} />
+          </div>
+
+          {/* Message Field */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '1rem', gap: '1rem' }}>
+            <label htmlFor="message" style={labelStyle}>Message:</label>
+            <textarea id="message" name="message" rows="5" style={inputStyle}></textarea>
+          </div>
+          {/* Submit Button */}
+          <button type="submit" style={submitBtnStyle}>Send Message</button>
+          
         </form>
       </div>
+
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Footer from './Footer';
 
 const Profile = () => {
   const [events, setEvents] = useState([]);
@@ -277,6 +278,7 @@ const Profile = () => {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

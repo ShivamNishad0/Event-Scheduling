@@ -73,12 +73,6 @@ const Navbar = () => {
               <Link to="/create-event" style={linkStyle}>
                 Create Event
               </Link>
-              <Link to="/Contact Us" style={linkStyle}>
-                Contact Us
-              </Link>
-              <Link to="/About Us" style={linkStyle}>
-                  About Us
-              </Link>
               <Link to="/profile" style={linkStyle}>
                 Profile
               </Link>
@@ -88,12 +82,6 @@ const Navbar = () => {
             </>
           ) : (
             <>
-            <Link to="/Contact Us" style={linkStyle}>
-                Contact Us
-            </Link>
-            <Link to="/About Us" style={linkStyle}>
-                About Us
-            </Link>
               <button onClick={handleLogin} style={loglinkStyle(loginHover)} onMouseEnter={() => setLoginHover(true)} onMouseLeave={() => setLoginHover(false)}>
                 Login
               </button>
