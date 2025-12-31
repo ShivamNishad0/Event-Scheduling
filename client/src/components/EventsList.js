@@ -15,6 +15,9 @@ const EventsList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterType, setFilterType] = useState("all");
+
 
   useEffect(() => {
     fetchEvents();
@@ -62,6 +65,20 @@ const EventsList = () => {
       setError(error.response?.data?.message || 'Failed to leave event');
     }
   };
+  const filteredEvents = events
+  .filter((event) =>
+    event.title.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+  .filter((event) => {
+    if (filterType === "upcoming") {
+      return new Date(event.date) >= new Date();
+    }
+    if (filterType === "past") {
+      return new Date(event.date) < new Date();
+    }
+    return true;
+  });
+
 
   // Slider settings
   const sliderSettings = {
@@ -104,10 +121,32 @@ const EventsList = () => {
           ))}
         </Slider>
 
-        <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', marginBottom: '2rem', color: 'white' }}>Events</h1>
+        <div>
+            <h1 style={{fontSize: "1.875rem", fontWeight: "bold", marginBottom: "1.5rem", color: "white", textAlign: "left"}}>Events</h1>
+
+            {/* Search & Filter */}
+            <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem" }}>
+              {/* Search Bar */}
+              <input type="text" placeholder="Search events..." value={searchTerm} 
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #ccc", width: "250px"}}/>
+
+              {/* Filter Dropdown */}
+              <select
+                value={filterType}
+                onChange={(e) => setFilterType(e.target.value)}
+                style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", border: "1px solid #ccc"}}>
+                <option value="all">All Events</option>
+                <option value="upcoming">Upcoming Events</option>
+                <option value="past">Past Events</option>
+              </select>
+            </div>
+          </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-          {events.map((event) => (
-            <div key={event.id} style={{
+          {filteredEvents.length > 0 ? (
+            filteredEvents.map((event) => (
+              <div key={event.id} style={{
                 backgroundColor: '#1f2937',
                 color: 'white',
                 borderRadius: '0.5rem',
@@ -117,8 +156,7 @@ const EventsList = () => {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 height: '85%',
-              }}
-            >
+              }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>{event.title}</h2>
               <p style={{ color: '#4b5563', marginBottom: '0.5rem' }}>
                 {event.description.length > 70 
@@ -155,7 +193,9 @@ const EventsList = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))) : (
+            <p style={{ color: "#9ca3af" }}>No events found</p>
+          )}
         </div>
       </div>
       <Footer style={{ marginTop: '2rem' }} />
