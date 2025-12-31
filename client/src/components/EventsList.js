@@ -121,11 +121,11 @@ const EventsList = () => {
           ))}
         </Slider>
 
-        <div>
-            <h1 style={{fontSize: "1.875rem", fontWeight: "bold", marginBottom: "1.5rem", color: "white", textAlign: "left"}}>Events</h1>
+        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "1rem"}}>
+            <h1 style={{fontSize: "1.875rem", fontWeight: "bold", color: "white", textAlign: "left"}}>Events</h1>
 
             {/* Search & Filter */}
-            <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem" }}>
+            <div style={{ display: "flex", gap: "1rem" }}>
               {/* Search Bar */}
               <input type="text" placeholder="Search events..." value={searchTerm} 
                 onChange={(e) => setSearchTerm(e.target.value)}
